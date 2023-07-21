@@ -1,0 +1,167 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+  padding: clamp(20px, 20vw, 200px) 20px 0;
+}
+
+.container {
+  max-width: 400px;
+  margin-inline: auto;
+  background-color: #868686;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+  border-radius: 15px;
+  outline: 2px solid #f1f1f1;
+  margin: 15px 0;
+  font-weight: bold;
+  position: relative;
+}
+
+.input-group input {
+  outline: none;
+  cursor: pointer;
+}
+
+.input-group label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 22px;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="color"]{
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+}
+
+.range-group {
+  margin: 10px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.range-group label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  outline: 2px solid #f1f1f1;
+  background: #F1F1F188;
+  font-size: 22px;
+  padding: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+input[type="range"]{
+  margin-top: 15px;
+  width: 100%;
+  height: 5px;
+  border-radius: 1px;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 0 #000000;
+  background: #F1F1F1;
+  border: 0 solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 0 #000000;
+  border: 1px solid #357ba9;
+  border-radius: 50%;
+  background: #6bb1f6;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-container button {
+  font-size: 20px;
+  min-width: 150px;
+  padding: 15px 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid #33333387;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.16);
+}
+
+.random-btn {
+  margin-left: 30px;
+}
+
+.copy-btn {
+  position: relative;
+}
+
+.copy-btn::after {
+  content: "Copié !";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 5px;
+  background: rgba(35, 232, 106, 0.55);
+  bottom: -75%;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.copy-btn.active::after {
+  animation: fade-out 1s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+}
